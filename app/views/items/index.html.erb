@@ -1,2 +1,6 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1>Liste des plantes</h1>
+<div class="item-column">
+  <% @items.each do |item| %>
+    <%= link_to item.name, item_path(item.id) %>
+  <% end %>
+</div>
