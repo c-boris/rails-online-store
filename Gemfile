@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'bootstrap-sass', '~> 3.3.7'
+
 ruby "3.0.0"
 gem 'devise'
 gem 'faker'
@@ -73,3 +75,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.1"
+
+gem "sassc", "~> 2.4"
