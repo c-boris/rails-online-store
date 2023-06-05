@@ -5,3 +5,12 @@
 //= link animate.css
 //= link slick.css
 //= link slick-theme.css
+//= link jquery/dist/jquery.min.js
+//= link bootstrap/js/bootstrap.min.js
+//= link bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js
+//= link instafeed/instafeed.min.js
+//= link ekko-lightbox/dist/ekko-lightbox.min.js
+//= link syo-timer/build/jquery.syotimer.min.js
+//= link slick/slick.min.js
+//= link slick/slick-animation.min.js
+//= link google-map/gmap.js
