@@ -53,6 +53,7 @@
  -------------------------------------------------------------------*/
  /*=== MEDIA QUERY ===*/
  @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500");
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
  body {
    line-height: 1.5;
    font-family: "Poppins", sans-serif;
@@ -97,6 +98,15 @@
    color: #777;
  }
  
+ .brand {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: black;
+  font-size: 26px;
+}
+
  .navbar-toggle .icon-bar {
    background: #000;
  }
@@ -242,7 +252,7 @@
  }
  
  .section {
-   padding: 80px 0;
+   padding: 20px 0;
  }
  
  .title {
@@ -2304,11 +2314,8 @@
  
  .footer {
    background: #F7F7F7;
-   padding: 50px 0;
  }
- .footer .footer-menu {
-   margin-top: 30px;
- }
+
  .footer .footer-menu li {
    display: inline-block;
    margin: 0 10px;
@@ -2318,7 +2325,7 @@
    font-size: 12px;
  }
  .footer .copyright-text {
-   margin-top: 20px;
+   margin-top: 0px;
  }
  
  .copyright-text a {
