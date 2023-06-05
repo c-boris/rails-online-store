@@ -14,7 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 
 Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "stylesheets")
 Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "javascript")
-Rails.application.config.assets.paths << Rails.root.join("vendor", "stylesheets", "themefisher-font")
-Rails.application.config.assets.paths << Rails.root.join("vendor", "stylesheets", "slick")
-Rails.application.config.assets.paths << Rails.root.join("vendor", "stylesheets", "animate")
-Rails.application.config.assets.paths << Rails.root.join("vendor", "javascript")
+vendor_path = Rails.root.join("vendor")
+Dir.glob(vendor_path.join("**/*")).each do |dir|
+  Rails.application.config.assets.paths << dir if File.directory?(dir)
+end
