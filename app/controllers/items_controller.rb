@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
     if !current_user.is_admin
       flash[:error] = "Permission denied!"
       redirect_back(fallback_location: items_path)
+    end
   end
 
 
@@ -54,7 +55,6 @@ class ItemsController < ApplicationController
       flash[:error] = "Permission denied!"
       redirect_back(fallback_location: items_path)
     end
-
   end
 
 
