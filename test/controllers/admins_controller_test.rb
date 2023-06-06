@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CartsControllerTest < ActionDispatch::IntegrationTest
+class AdminsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
