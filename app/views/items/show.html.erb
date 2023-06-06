@@ -125,7 +125,7 @@
 							<li><a href="product-single.html">Soap</a></li>
 						</ul>
 					</div>
-					<a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+						<%= button_to "Passer commande", checkout_create_path(total: 10), class: "btn btn-primary", data: {turbo: false} %>
 				</div>
 			</div>
 		</div>
