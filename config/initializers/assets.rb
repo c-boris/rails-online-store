@@ -18,3 +18,6 @@ vendor_path = Rails.root.join("vendor")
 Dir.glob(vendor_path.join("**/*")).each do |dir|
   Rails.application.config.assets.paths << dir if File.directory?(dir)
 end
+
+Rails.application.config.assets.precompile += %w(bootstrap.min.css)
+Rails.application.config.assets.precompile += %w( style.css )
