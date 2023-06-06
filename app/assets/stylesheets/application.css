@@ -340,8 +340,8 @@
  }
  
  .page-header {
-   background: #f5f5f5;
-   margin-top: 20px;
+   background: #CCCCC0;
+   margin-top: 0px;
    border-bottom: none;
    padding: 30px 0;
  }
@@ -612,6 +612,10 @@
    color: #fff;
    position: relative;
  }
+
+ .top-header {
+  background-color: #FEFEEF;
+ }
  
  .top-header .container {
    padding-top: 35px;
@@ -738,6 +742,7 @@
  .navigation {
    margin-bottom: 0;
    padding: 10px 0;
+   background-color: #FEFEEF;
  }
  .navigation .menu-title {
    display: none;
@@ -956,7 +961,11 @@
      display: none !important;
    }
  }
- 
+
+ .products-section {
+  background-color: #FEFEEF;
+ }
+
  .product-item {
    margin-bottom: 30px;
  }
@@ -2313,7 +2322,7 @@
  }
  
  .footer {
-   background: #F7F7F7;
+   background: #CCCCC0;
  }
 
  .footer .footer-menu li {
