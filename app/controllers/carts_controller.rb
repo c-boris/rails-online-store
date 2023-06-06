@@ -1,32 +1,62 @@
-class CartController < ApplicationController
-	def index 
-	
-	end
+class CartsController < ApplicationController
+  before_action :authenticate_user!
 
-	def show 
-		@cart = current_user.cart
-		@cart = Cart.find_by(user: current_user)
-		@total = @cart.total_price
-	end 
+  def index
+    @cart = current_user.cart
+    # @item_carts = ItemCart.where(cart: @cart)
+    # @total = @item_carts.reduce(0){|sum, ic| sum + ic.item.price}.round(2)
 
-	def create 
-	end 
+  end
+  
+  def show
+    @cart
+  end
 
-	def update
-		@cart = Cart.find(params[:id])
-		if @cart.update(cart_params)
-		else 
-		end
-	end 
+  # GET cart/id
+  def new 
+    @cart = Cart.new
+  end
 
-	def destroy
-    @cart.destroy
-  end 
+  # POST
+  def create
+    @cart = Cart.find(current_user.cart.id)
+    @item = Item.find(params[:item_id])
 
-	private
+    # Check item is already in card
+    check_item = ItemCart.find_by(item: @item, cart: @cart);
+    if !check_item.nil?
+      flash[:error] = "This item is already added in cart."
+      return redirect_to items_path
+    end
+    # item_cart = ItemCart.new(cart: @cart, item: @item)
+    if item_cart.save
+      redirect_to items_path
+      flash[:success] = "Update an item in cart sucessfully."
+    else
+      redirect_to items_path
+      flash[:error] = "Some error has been occured."
+    end
+    
+  end
+  
 
-	def cart_params
-		params.require(:cart).permit(:user_id, :item_id)
-	end
+  # DELETE 
+  def destroy
+    # @item_cart = ItemCart.find(params[:item_cart_id])
+    if @item_cart.destroy
+      flash[:success] = "Remove successfully an item"
+    else
+      flash[:error] = "An error has been occured!"
+    end
+    redirect_to carts_path
 
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_card
+    @card = Cart.find(params[:id])
+  end
+
+  
 end
