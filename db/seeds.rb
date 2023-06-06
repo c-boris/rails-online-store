@@ -15,7 +15,7 @@ NUM_ITEMS.times do
   Item.create!(
     title: Faker::Name.first_name,
     description: Faker::Lorem.sentence,
-    price: rand(50,00..999,99),
+    price: rand(50.00..999.99),
     image_url: item_image
   )
 end
