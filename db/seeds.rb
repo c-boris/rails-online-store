@@ -1,4 +1,4 @@
-KEYWORDS = ['kitten', 'cat', 'katua', 'chat', 'kitty', 'chaton', 'paws', 'whiskers', 'miaou', 'purr', 'gato', 'gata', 'katze', 'yeowl', 'gatto', 'con_mèo', 'kat', 'pisică', 'macska', 'gat']
+KEYWORDS = ['kitten', 'cat', 'katua', 'chat', 'kitty', 'chaton', 'paws', 'whiskers', 'miaou', 'purr', 'gato', 'gata', 'katze', 'yeowl', 'meowing', 'con_mèo', 'meows', 'pisică', 'macska', 'gat']
 
 NUM_ITEMS = KEYWORDS.length
 
