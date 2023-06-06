@@ -1,10 +1,12 @@
 //= link_tree ../images
 //= link_tree ../builds
+//= link application.css
 //= link bootstrap.min.css
 //= link style.css
 //= link animate.css
 //= link slick.css
 //= link slick-theme.css
+//= link application.js
 //= link jquery/dist/jquery.min.js
 //= link bootstrap/js/bootstrap.min.js
 //= link bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js
