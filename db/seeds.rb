@@ -1,22 +1,21 @@
-NUM_ITEMS = 20
-NUM_KITTEN_IMAGES = 40
-MIN_SIZE = 450
-MAX_SIZE = 550
+KEYWORDS = ['kitten', 'cat', 'katua', 'chat', 'kitty', 'chaton', 'paws', 'whiskers', 'miaou', 'purr', 'gato', 'gata', 'katze', 'yeowl', 'meowing', 'con_mèo', 'meows', 'pisică', 'macska', 'gat']
 
-# Générer les 40 images et les stocker dans un tableau
-kitten_images = []
-NUM_KITTEN_IMAGES.times do
-  kitten_images << Faker::LoremFlickr.image(size: "#{rand(MIN_SIZE..MAX_SIZE)}x#{rand(MIN_SIZE..MAX_SIZE)}", search_terms: ['kitten'])
-end
+NUM_ITEMS = KEYWORDS.length
 
 NUM_ITEMS.times do
-  random_index = rand(NUM_KITTEN_IMAGES)  # Générer un index aléatoire pour accéder à une image dans le tableau
-  item_image = kitten_images[random_index]
+  random_index = rand(KEYWORDS.length)
+  random_keyword = KEYWORDS[random_index]
+  KEYWORDS.delete_at(random_index)
+
+  item_image = Faker::LoremFlickr.image(
+    size: "450x450",
+    search_terms: [random_keyword]
+  )
 
   Item.create!(
     title: Faker::Name.first_name,
     description: Faker::Lorem.sentence,
-    price: rand(50..1000),
+    price: rand(50..999.99),
     image_url: item_image
   )
 end

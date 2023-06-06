@@ -14,7 +14,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <!-- Themefisher Icon font -->
-    <%= stylesheet_link_tag 'style.css' %>
+    <%= stylesheet_link_tag 'style' %>
     
     <!-- Animate css -->
     <%= stylesheet_link_tag 'animate' %>
@@ -228,6 +228,9 @@
 										<li><a href="login.html">Login Page</a></li>
 										<li><a href="signin.html">Signin Page</a></li>
 										<li><a href="forget-password.html">Forget Password</a></li>
+                    <% if user_signed_in? %>
+                    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                  <% end %>
 									</ul>
 								</div>
 
@@ -250,7 +253,7 @@
               <li><%= link_to "Edit profile", edit_user_registration_path %></li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li><%= link_to "Log in", new_user_session_path %></li>
               <li><%= link_to "Sign up", new_user_registration_path %></li>
             <% end %>
           </ul>
