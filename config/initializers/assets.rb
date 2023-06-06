@@ -20,3 +20,4 @@ Dir.glob(vendor_path.join("**/*")).each do |dir|
 end
 
 Rails.application.config.assets.precompile += %w(bootstrap.min.css)
+Rails.application.config.assets.precompile += %w( style.css )
