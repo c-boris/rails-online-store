@@ -1,6 +1,5 @@
 class CartItemsController < ApplicationController
-  def index 
-	end
+
 	def create
     cart = current_user.cart
     item = Item.find(params[:item])
@@ -8,17 +7,11 @@ class CartItemsController < ApplicationController
 		redirect_to cart_path(cart)
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-
   def destroy
-    cart = current_user.cart
-    cartitem = CartItem.find(params[:id])
-    NewCartUpdate.new(cart, cartitem).perform
-		redirect_to cart_path(current_user.cart)
+    @cart_item = CartItem.find(params[:id])
+    cart = @cart_item.cart
+    @cart_item.destroy
+    redirect_to cart_path(cart), notice: "Item removed from cart."
   end
+        
 end
