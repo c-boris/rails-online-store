@@ -19,6 +19,9 @@
 				<div class="single-product-slider">
 					<div id='carousel-custom' class='carousel slide' data-ride='carousel'>
 						<img src="<%= @item.image_url %>" alt="product-img" width="450" height="450" class="shop-image-cat"/>
+              <% if @item.item_picture.attached? %>
+                <%= image_tag @item.item_picture %>
+              <% end %>
 					</div>
 				</div>
 			</div>
