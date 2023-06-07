@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :items
   resources :carts
+  resources :cart_items, only: [:create, :destroy]
   resources :orders
   resources :orderitems
-  resources :cart_items, only: [:destroy]
   root to: "items#index"
 
   scope '/checkout' do

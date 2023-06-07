@@ -9,7 +9,7 @@ class CartsController < ApplicationController
   end
   
   def show
-    @cart
+    redirect_to carts_path
   end
 
   # GET cart/id
