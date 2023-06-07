@@ -40,17 +40,17 @@ class CartsController < ApplicationController
   end
   
 
-  # DELETE 
-  def destroy
-    # @item_cart = ItemCart.find(params[:item_cart_id])
-    if @item_cart.destroy
-      flash[:success] = "Remove successfully an item"
-    else
-      flash[:error] = "An error has been occured!"
-    end
-    redirect_to carts_path
+  # # DELETE 
+  # def destroy
+  #   # @item_cart = ItemCart.find(params[:item_cart_id])
+  #   if @item_cart.destroy
+  #     flash[:success] = "Remove successfully an item"
+  #   else
+  #     flash[:error] = "An error has been occured!"
+  #   end
+  #   redirect_to carts_path
 
-  end
+  # end
 
   private
   # Use callbacks to share common setup or constraints between actions.
