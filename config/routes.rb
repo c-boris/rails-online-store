@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+  get 'profiles/edit'
+  get 'profiles/update'
 
   devise_for :users
 
@@ -15,6 +18,8 @@ Rails.application.routes.draw do
   resources :orders
   resources :orderitems
   root to: "items#index"
+
+  resources :profiles, only: [:show, :edit, :update]
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
