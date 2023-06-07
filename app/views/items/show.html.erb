@@ -43,7 +43,7 @@
 							<li><a href="product-single.html">Soap</a></li>
 						</ul>
 					</div>
-						<%= button_to "Add to cart", new_cart_path, class: "btn btn-primary", data: {turbo: false} %>
+						<%= button_to "Add to cart", carts_path(item_id: @item.id), method: :post, class: "btn btn-primary", data: { turbo: false, item_id: @item.id } %>
 						<br />
 						<%= button_to "Order", checkout_create_path(total: @item.price), class: "btn btn-primary", data: {turbo: false} %>
 				</div>

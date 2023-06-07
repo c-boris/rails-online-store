@@ -19,24 +19,24 @@ class CartsController < ApplicationController
 
   # POST
   def create
-    @cart = Cart.find(current_user.cart.id)
+    @cart = current_user.cart || Cart.new(user: current_user)
     @item = Item.find(params[:item_id])
-
-    # Check item is already in card
-    check_item = ItemCart.find_by(item: @item, cart: @cart);
-    if !check_item.nil?
-      flash[:error] = "This item is already added in cart."
-      return redirect_to items_path
-    end
-    # item_cart = ItemCart.new(cart: @cart, item: @item)
-    if item_cart.save
+  
+    puts "Item ID: #{params[:item_id]}" # Add this line
+  
+    if @cart.cart_items.exists?(item: @item)
+      flash[:error] = 'This item is already added in the cart.'
       redirect_to items_path
-      flash[:success] = "Update an item in cart sucessfully."
     else
-      redirect_to items_path
-      flash[:error] = "Some error has been occured."
+      @cart_item = @cart.cart_items.build(item: @item)
+      if @cart_item.save
+        flash[:success] = 'Item added to cart successfully.'
+        redirect_to items_path
+      else
+        flash[:error] = 'An error occurred while adding the item to the cart.'
+        redirect_to items_path
+      end
     end
-    
   end
   
 
