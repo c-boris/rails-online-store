@@ -495,7 +495,6 @@
    position: relative;
  }
  .commonSelect:before {
-   content: "\f3d0";
    font-family: "themefisher-font";
    position: absolute;
    right: -4px;
