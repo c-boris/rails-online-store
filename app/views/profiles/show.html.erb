@@ -1,0 +1,11 @@
+<h1>Profile of <%= @user.email %></h1>
+
+<h2>Basic Information</h2>
+<p>Name: <%= @user.first_name %></p>
+<p>Email: <%= @user.email %></p>
+
+<h2>Past Orders</h2>
+<% @orders.each do |order| %>
+  <p>Order Number: <%= order.id %></p>
+  <!-- Display order details -->
+<% end %>
