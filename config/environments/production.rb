@@ -61,7 +61,7 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "thp_26_online_store_production"
-
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -90,4 +90,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'apikey',
+    :password => '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',
+    :domain => 'gmail.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
