@@ -31,7 +31,7 @@ class CartsController < ApplicationController
       @cart_item = @cart.cart_items.build(item: @item)
       if @cart_item.save
         flash[:success] = 'Item added to cart successfully.'
-        redirect_to items_path
+        redirect_to carts_path
       else
         flash[:error] = 'An error occurred while adding the item to the cart.'
         redirect_to items_path

@@ -15,42 +15,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="images/shop/cart/cart-1.jpg" alt="" />
-                          <a href="#!">Sunglass</a>
-                        </div>
-                      </td>
-                      <td class="">$200.00</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="images/shop/cart/cart-2.jpg" alt="" />
-                          <a href="#!">Airspace</a>
-                        </div>
-                      </td>
-                      <td class="">$200.00</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="images/shop/cart/cart-3.jpg" alt="" />
-                          <a href="#!">Bingo</a>
-                        </div>
-                      </td>
-                      <td class="">$200.00</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
+                    <% current_user.cart.cart_items.each do |cart_item| %>
+                      <tr class="">
+                        <td class="">
+                          <div class="product-info">
+                            <img width="80" src="<%= cart_item.item.image_url %>" alt="" />
+                            <a href="#!"><%= cart_item.item.title %></a>
+                          </div>
+                        </td>
+                        <td class=""><%= number_to_currency(cart_item.item.price) %></td>
+                        <td class="">
+                          <%= link_to "Delete", cart_item_path(cart_item.id), method: :delete, class: "product-remove", data: { confirm: 'Are you sure you want to delete this item from your cart?' } %>
+                        </td>
+                      </tr>
+                    <% end %>
                   </tbody>
                 </table>
                 <a href="checkout.html" class="btn btn-main pull-right">Checkout</a>

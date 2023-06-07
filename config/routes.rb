@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
   resources :orderitems
+  resources :cart_items, only: [:destroy]
   root to: "items#index"
 
   scope '/checkout' do

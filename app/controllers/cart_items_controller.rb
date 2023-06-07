@@ -16,9 +16,10 @@ class CartItemsController < ApplicationController
 
 
   def destroy
-    cart = current_user.cart
-    cartitem = CartItem.find(params[:id])
-    NewCartUpdate.new(cart, cartitem).perform
-		redirect_to cart_path(current_user.cart)
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    flash[:success] = 'Item removed from cart successfully.'
+    redirect_to cart_path
   end
+  
 end
