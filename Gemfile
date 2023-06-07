@@ -84,3 +84,4 @@ gem "sassc", "~> 2.4"
 
 gem "stripe"
 gem 'image_suckr'
+gem "sendgrid-ruby", "~> 6.6"

@@ -201,6 +201,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -213,6 +214,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sendgrid-ruby (6.6.2)
+      ruby_http_client (~> 3.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -274,6 +277,7 @@ DEPENDENCIES
   rails (~> 7.0.5)
   sassc (~> 2.4)
   selenium-webdriver
+  sendgrid-ruby (~> 6.6)
   sprockets-rails
   stimulus-rails
   stripe
