@@ -132,19 +132,33 @@
  .form-control {
    box-shadow: none;
    border-radius: 0;
+   font-size: 16px!important;
  }
  .form-control:focus {
    box-shadow: none;
    border: 1px solid #000;
  }
  
+ .btn-danger {
+   background-color: #9B84B3!important;
+   border-color: #9B84B3!important;
+   color: #FEFEEF;
+   margin: 10px 0;
+ }
+
+ .btn-danger:hover {
+  background-color: #F7F0FF!important;
+  color: #40403C!important;
+ }
+
  .btn-main, .btn-small, .btn-transparent, .btn-solid-border {
-   background: #000;
-   color: #fff;
+   background: #808078;
+   color: #FEFEEF;
    display: inline-block;
    font-size: 11px;
    letter-spacing: 1px;
-   padding: 14px 35px;
+   padding: 20px 30px;
+   margin: 20px 0!important;
    text-transform: uppercase;
    font-weight: 200;
    border-radius: 0;
@@ -155,8 +169,8 @@
    margin-right: 5px;
  }
  .btn-main:hover, .btn-small:hover, .btn-transparent:hover, .btn-solid-border:hover {
-   background: black;
-   color: #fff;
+   background: #CCCCC0;
+   color: #FFFFA3;
  }
  
  .btn-solid-border {
@@ -230,7 +244,7 @@
  }
  
  .margin-0 {
-   margin: 0 !important;
+   margin: 0!important;
  }
  
  #preloader {
@@ -617,6 +631,11 @@
    text-align: center;
    color: #fff;
    position: relative;
+ }
+
+ .registration {
+  background-color: #FEFEEF;
+  padding-bottom: 40px;
  }
 
  .top-header {
