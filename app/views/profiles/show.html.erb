@@ -6,12 +6,18 @@
           <a class="logo" href="index.html">
             <img src="images/logo.png" alt="">
           </a>
-          <h2 class="text-center">Profile of <%= @user.email %></h2>
+          <h2 class="text-center">Profile of <%= @user.first_name %></h2>
 
           <h3 class="text-center">Basic Information</h3>
           <div class="text-left clearfix">
-            <p><strong>Name:</strong> <%= @user.first_name %></p>
+            <p><strong>First Name:</strong> <%= @user.first_name %></p>
+            <p><strong>Last Name:</strong> <%= @user.last_name %></p>
             <p><strong>Email:</strong> <%= @user.email %></p>
+          </div>
+
+          <div class="text-left clearfix">
+            <br>
+            <p><strong>Past Orders:</strong></p>
           </div>
 
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-main text-center' %>
