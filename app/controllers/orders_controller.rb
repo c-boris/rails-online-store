@@ -40,8 +40,6 @@ class OrdersController < ApplicationController
     # #   item_cart.destroy
     # # end
     # redirect_to order_path(@order)
-    
-    OrderMailer.order_confirmation(@order).deliver_now
   end
 
   def destroy
