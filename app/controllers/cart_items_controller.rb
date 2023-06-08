@@ -7,6 +7,13 @@ class CartItemsController < ApplicationController
 		redirect_to cart_path(cart)
   end
 
+  def update
+    cart_item = CartItem.find(params[:id])
+    cart_item.update(quantity: params[:quantity])
+    redirect_to cart_path, notice: "Quantity updated successfully."
+  end
+  
+
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
