@@ -1213,6 +1213,16 @@
    color: #000;
  }
  
+ .shop-image {
+   background-color: #CCCCC0;
+   border-radius: 20px;
+   padding: 5px!important;
+ }
+
+.shop-image-cat {
+  border-radius: 10px;
+}
+
  .single-product {
    padding: 60px 0 40px;
    background-color: #FEFEEF;
