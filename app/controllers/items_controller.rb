@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
 
   
   def index
-    @items = Item.all.order(updated_at: :desc)
+    @items = Item.all
   end
 
 
