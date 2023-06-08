@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :items
   resources :carts
-  resources :cart_items, only: [:create, :destroy]
+  resources :cart_items, only: [:create, :destroy, :update]
   resources :orders
   resources :orderitems
   root to: "items#index"
