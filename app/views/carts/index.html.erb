@@ -27,7 +27,7 @@
                           <tr class="">
                             <td class="product-column">
                               <div class="product-info">
-                                <img width="80" src="<%= cart_item.item.image_url %>" alt="image de chat" />
+                                <%= image_tag cart_item.item.item_picture, style: "width: 80px; height: 80px; object-fit: cover;" %>
                                 <%= link_to cart_item.item.title, item_path(cart_item.item.id) %>
                               </div>
                             </td>                            
