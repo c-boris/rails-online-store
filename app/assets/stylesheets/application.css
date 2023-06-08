@@ -2233,6 +2233,11 @@
  .empty-cart .block i {
    font-size: 50px;
  }
+
+ .product-column {
+  width: 40%;
+}
+
  
  .success-msg .block i {
    font-size: 40px;

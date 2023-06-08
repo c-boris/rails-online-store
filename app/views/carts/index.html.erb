@@ -20,12 +20,12 @@
                     <% if current_user.cart.present? %>
                       <% if current_user.cart.cart_items.empty? %>
                         <tr>
-                          <td colspan="3">Cart Empty</td>
+                          <td colspan="6">Cart Empty</td>
                         </tr>
                       <% else %>
                         <% current_user.cart.cart_items.each do |cart_item| %>
                           <tr class="">
-                            <td class="">
+                            <td class="product-column">
                               <div class="product-info">
                                 <img width="80" src="<%= cart_item.item.image_url %>" alt="image de chat" />
                                 <%= link_to cart_item.item.title, item_path(cart_item.item.id) %>
@@ -45,14 +45,23 @@
                           </tr>
                         <% end %>
                       <% end %>
+                      <tr>
+                        <td colspan="3"></td>
+                        <td class="cart-total">Cart Total:</td>
+                        <td class="cart-total-amount" colspan="2"><%= number_to_currency(@total) %></td>
+                      </tr>
+                      <tr>
+                        <td colspan="6" class="text-center">
+                          <%= button_to "Order", checkout_create_path(total: @total), class: "btn btn-primary", data: {turbo: false} %>
+                        </td>
+                      </tr>
                     <% else %>
                       <tr>
-                        <td colspan="3">Cart Empty</td>
+                        <td colspan="5">Cart Empty</td>
                       </tr>
                     <% end %>
                   </tbody>
                 </table>
-              <%= button_to "Order", checkout_create_path(total: @total), class: "btn btn-primary", data: {turbo: false} %>
               </form>
             </div>
           </div>
