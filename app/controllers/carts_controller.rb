@@ -3,42 +3,39 @@ class CartsController < ApplicationController
 
   def index
     @cart = current_user.cart
-    # @item_carts = ItemCart.where(cart: @cart)
-    # @total = @item_carts.reduce(0){|sum, ic| sum + ic.item.price}.round(2)
-
+    @cart_total = calculate_cart_total(@cart) 
   end
   
   def show
     redirect_to carts_path
   end
 
-  # GET cart/id
   def new 
     @cart = Cart.new
   end
 
-  # POST
   def create
     @cart = current_user.cart || Cart.new(user: current_user)
     @item = Item.find(params[:item_id])
   
-    puts "Item ID: #{params[:item_id]}" # Add this line
+    existing_cart_item = @cart.cart_items.find_by(item: @item)
   
-    if @cart.cart_items.exists?(item: @item)
-      flash[:error] = 'This item is already added in the cart.'
-      redirect_to items_path
+    if existing_cart_item
+      existing_cart_item.update(quantity: existing_cart_item.quantity + 1)
+      flash[:success] = 'Item quantity updated in the cart successfully.'
     else
       @cart_item = @cart.cart_items.build(item: @item)
       if @cart_item.save
         flash[:success] = 'Item added to cart successfully.'
-        redirect_to carts_path
       else
         flash[:error] = 'An error occurred while adding the item to the cart.'
-        redirect_to items_path
       end
     end
-  end
   
+    @cart_total = calculate_cart_total(@cart) # Calculate cart total
+    redirect_to carts_path
+  end
+    
 
   # # DELETE 
   # def destroy
@@ -56,6 +53,16 @@ class CartsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_card
     @card = Cart.find(params[:id])
+  end
+
+  private
+
+  def calculate_cart_total(cart)
+    total = 0
+    cart.cart_items.each do |cart_item|
+      total += cart_item.item.price * cart_item.quantity
+    end
+    total
   end
 
   
