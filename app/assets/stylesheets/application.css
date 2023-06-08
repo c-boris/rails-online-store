@@ -142,6 +142,15 @@
    border: 1px solid #000;
  }
  
+ .btn-primary {
+  background-color: #D6EEFF!important;
+  color: #40403C!important;
+ }
+
+ .btn-primary:hover {
+  background-color: #A0C7FD!important;
+ }
+
  .btn-danger {
    background-color: #9B84B3!important;
    border-color: #9B84B3!important;
@@ -1008,6 +1017,10 @@
    }
  }
 
+ .related-products {
+  background-color: #E8E7CF;
+ }
+
  .products-section {
   background-color: #FEFEEF;
  }
@@ -1202,6 +1215,7 @@
  
  .single-product {
    padding: 60px 0 40px;
+   background-color: #FEFEEF;
  }
  .single-product .breadcrumb {
    background: transparent;
