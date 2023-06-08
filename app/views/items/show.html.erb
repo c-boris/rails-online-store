@@ -7,20 +7,18 @@
 					<li><%= link_to "Cart", carts_path %></li>
 				</ol>
 			</div>
-			<section class="single-product">
-				<div class="col-md-6">
-					<ol class="product-pagination text-right">
-						<% prev_item = Item.where("id < ?", @item.id).order(id: :desc).first %>
-						<% next_item = Item.where("id > ?", @item.id).order(:id).first %>
-						<% if prev_item %>
-							<li><a href="<%= item_path(prev_item) %>"><i class="tf-ion-ios-arrow-left"></i> Previous</a></li>
-						<% end %>
-						<% if next_item %>
-							<li><a href="<%= item_path(next_item) %>">Next <i class="tf-ion-ios-arrow-right"></i></a></li>
-						<% end %>
-					</ol>
-				</div>
-			</section>
+			<div class="col-md-6">
+				<ol class="product-pagination text-right">
+					<% prev_item = Item.where("id < ?", @item.id).order(id: :desc).first %>
+					<% next_item = Item.where("id > ?", @item.id).order(:id).first %>
+					<% if prev_item %>
+						<li><a href="<%= item_path(prev_item) %>"><i class="tf-ion-ios-arrow-left"></i> Previous</a></li>
+					<% end %>
+					<% if next_item %>
+						<li><a href="<%= item_path(next_item) %>">Next <i class="tf-ion-ios-arrow-right"></i></a></li>
+					<% end %>
+				</ol>
+			</div>
 		</div>
 		<div class="row mt-20 shop-image">
 			<div class="col-md-5 shop-image">
