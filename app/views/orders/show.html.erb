@@ -1,2 +1,37 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<section class="user-dashboard page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Date</th>
+                  <th>Items</th>
+                  <th>Total Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#<%= @order.id %></td>
+                  <td><%= @order.created_at.strftime("%b %d, %Y") %></td>
+                  <td>
+                    <ul>
+                      <% @order.items.each do |item| %>
+                        <li>
+                          <%= image_tag item.item_picture, class: "item-image" %>
+                          <%= link_to item.title, item_path(item.id) %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </td>
+                  <td>$<%= @order.order_total %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

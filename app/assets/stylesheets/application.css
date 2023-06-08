@@ -2234,6 +2234,32 @@
   width: 30%;
 }
 
+.item-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 30%;
+}
+
+.hidden-button {
+    display: none;
+  }
+
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-button {
+  margin: 0 5px;
+}
+
+.quantity-display {
+  margin: 0 5px;
+}
+
  
  .success-msg .block i {
    font-size: 40px;
