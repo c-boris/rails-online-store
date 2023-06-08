@@ -29,6 +29,14 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+
+    order = Order.create!(
+      user_id: current_user.id,
+    )
+
+    # Redirect or render a success page
+    redirect_to order_path(order) # Assuming you have an `order_path` route and an `OrderController` to handle showing the order details
+
   end
 
   def cancel
