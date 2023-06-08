@@ -1,7 +1,7 @@
 class CheckoutController < ApplicationController
   
   def create
-    @total = params[:total].to_d
+    @total = current_user.cart.cart_items.joins(:item).sum('items.price')
 
     Stripe.api_key = "sk_test_51NFxRLHuW4CpX6vqLT6AM0nPf7qZwDvFcrKwTRDgv0oDf0lJeCq5xBUlSkYhCmX3WREyVH0pR21El1xyyuiJ5oRs00ylqVHJF0"
 

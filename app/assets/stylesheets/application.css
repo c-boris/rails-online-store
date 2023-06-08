@@ -414,6 +414,7 @@
  .page-wrapper {
    padding: 50px 0;
    background-color: #FEFEEF;
+   min-height: 65vh;
  }
  
  .social-media-icons ul li {
@@ -655,7 +656,8 @@
  .registration {
   background-color: #FEFEEF;
   padding-bottom: 40px;
- }
+  min-height: 65vh;
+}
 
  .top-header {
   background-color: #FEFEEF;
