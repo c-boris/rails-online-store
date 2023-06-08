@@ -17,8 +17,6 @@
 
           <h3 class="text-center">Order History</h3>
           <div class="text-left clearfix">
-            <p><strong>Past Orders:</strong></p>
-            <br>
             <% @user.orders.each do |order| %>
               <p><strong><%= link_to 'Order details :', order_path(order.id)%></strong></p>
               <p><strong>Date:</strong> <%= order.created_at.to_date %></p>
