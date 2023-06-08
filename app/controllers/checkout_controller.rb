@@ -33,7 +33,9 @@ class CheckoutController < ApplicationController
     @total = current_user.cart.cart_items.sum { |cart_item| cart_item.item.price * cart_item.quantity }
 
     order = Order.create!(user_id: current_user.id, order_total: @total)
-
+    order.save!
+    OrderMailer.order_confirmation(current_user, order).deliver_now
+  
     cart_items = current_user.cart.cart_items
   
     cart_items.each do |cart_item|
