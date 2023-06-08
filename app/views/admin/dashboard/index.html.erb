@@ -1,5 +1,21 @@
-<center>
-<h1>Tableau de bord administrateur</h1>
-<p>Bienvenue sur votre tableau de bord administrateur.</p>
-<!-- Ajoutez le contenu supplémentaire du tableau de bord -->
-</center>
+<section class="registration">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="block text-center">
+          <a class="logo" href="index.html">
+            <img src="images/logo.png" alt="">
+          </a>
+          <h2 class="text-center">Dashboard administrateur</h2>
+
+          <h3 class="text-center">Bienvenue sur votre Dashboard administrateur</h3>
+          <br>
+          <div class="text-left clearfix">
+            <p><strong>Nombre de commandes vendues : </strong><%= @total_orders_sold || 0 %></p>
+            <p><strong>Prix moyen des objets vendus : </strong><%= number_to_currency(@average_price_sold) %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
