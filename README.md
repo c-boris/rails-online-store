@@ -1,24 +1,34 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Run locally
 
-Things you may want to cover:
+Assuming you have postgres installed (if not, figure that out)!
 
-* Ruby version
+Do a standard bundle install
 
-* System dependencies
+```bash
+  bundle install
+```
 
-* Configuration
+Initialize the migrations (if necessary, create a database first with rails db:create)
 
-* Database creation
+```bash
+  rails db:migrate
+```
 
-* Database initialization
+Run the seed file to fill in the databse
 
-* How to run the test suite
+```bash
+  rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Start the server. 
 
-* Deployment instructions
+```bash
+  rails server
+```
 
-* ... TEST
+You should be able to access it via your standard friendly http://localhost:3000/. Go apeshit!
+
+## Visit the website
+
+Painstakingly deployed to Heroku, you can visit the shop at this adress: https://kitten-app-dev.herokuapp.com/
