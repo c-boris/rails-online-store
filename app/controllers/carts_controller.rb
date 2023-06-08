@@ -3,9 +3,14 @@ class CartsController < ApplicationController
 
   def index
     @cart = current_user.cart
-    @cart_total = calculate_cart_total(@cart) 
-  end
   
+    if !@cart
+      @cart_total = 0
+    else
+      @cart_total = calculate_cart_total(@cart)
+    end
+  end
+    
   def show
     redirect_to carts_path
   end
@@ -36,23 +41,15 @@ class CartsController < ApplicationController
     redirect_to carts_path
   end
     
-
-  # # DELETE 
-  # def destroy
-  #   # @item_cart = ItemCart.find(params[:item_cart_id])
-  #   if @item_cart.destroy
-  #     flash[:success] = "Remove successfully an item"
-  #   else
-  #     flash[:error] = "An error has been occured!"
-  #   end
-  #   redirect_to carts_path
-
-  # end
-
-  private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_card
-    @card = Cart.find(params[:id])
+ 
+  def destroy
+    @cart = current_user.cart
+    if @cart.destroy
+      flash[:success] = "Remove successfully an item"
+    else
+      flash[:error] = "An error has been occured!"
+    end
+    redirect_to root_path
   end
 
   private
