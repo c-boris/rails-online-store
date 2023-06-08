@@ -55,7 +55,6 @@
               <a href="<%= carts_path %>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
                   class="tf-ion-android-cart"></i>Cart</a>
             </li><!-- / Cart -->
-
           </ul>
         </div>
       </div>
@@ -128,11 +127,17 @@
 </section>
 
   <body>
-    <% flash.each do |key, value| %>
-    <div class="flash <%= key %>">
-      <%= value %>
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %> text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <%= value %>
+          </div>
+        </div>
+      </div>
     </div>
-    <% end %>
+  <% end %>
 
     <%= yield %>
   </body>
@@ -160,14 +165,14 @@
             </ul>
             <ul class="footer-menu text-uppercase">
               <li>
-                <%= link_to 'CONTACT', contact_path %>
+                <a href="contact.html">CONTACT</a>
               </li>
               <li>
-                <%= link_to 'TEAM', team_path %>
+                <a href="contact.html">TEAM</a>
               </li>
               <li>
-                <%= link_to 'ABOUT', about_path %>
-              </li>                 
+                <a href="contact.html">ABOUT</a>
+              </li>
             </ul>
             <p class="copyright-text">Copyright &copy;2023</a></p>
           </div>
