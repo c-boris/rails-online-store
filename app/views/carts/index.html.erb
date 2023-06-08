@@ -48,7 +48,7 @@
                       <tr>
                         <td colspan="3"></td>
                         <td class="cart-total">Cart Total:</td>
-                        <td class="cart-total-amount" colspan="2"><%= number_to_currency(@total) %></td>
+                        <td class="cart-total-amount" colspan="4"><%= number_to_currency(current_user.cart.cart_items.sum { |cart_item| cart_item.item.price * cart_item.quantity }) %></td>
                       </tr>
                       <tr>
                         <td colspan="6" class="text-center">
