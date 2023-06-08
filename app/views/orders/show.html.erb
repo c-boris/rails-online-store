@@ -17,7 +17,16 @@
                 <tr>
                   <td>#<%= @order.id %></td>
                   <td><%= @order.created_at.strftime("%b %d, %Y") %></td>
-                  <td><%= @order.items.count %></td>
+                  <td>
+                    <ul>
+                      <% @order.items.each do |item| %>
+                        <li>
+                          <%= image_tag item.item_picture, style: "width: 80px; height: 80px; object-fit: cover;" %>
+                          <%= link_to item.title, item_path(item.id) %>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </td>
                   <td>$<%= @order.order_total %></td>
                 </tr>
               </tbody>
