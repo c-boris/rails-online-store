@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update]
 
+  get 'contact', to: 'static_pages#contact'
+  get 'team', to: 'static_pages#team'
+  get 'about', to: 'static_pages#about'  
+
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
     get 'success', to: 'checkout#success', as: 'checkout_success'
