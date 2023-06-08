@@ -222,14 +222,6 @@
  .btn-round-full {
    border-radius: 50px;
  }
- 
- .btn-reviews {
-
- }
-
- .btn-details {
-  
- }
 
  .btn.active:focus, .btn:active:focus, .btn:focus {
    outline: 0;
