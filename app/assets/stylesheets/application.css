@@ -2234,6 +2234,15 @@
   width: 30%;
 }
 
+.item-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border-radius: 30%;
+}
+
+
  
  .success-msg .block i {
    font-size: 40px;

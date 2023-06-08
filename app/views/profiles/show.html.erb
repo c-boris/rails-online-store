@@ -20,7 +20,7 @@
             <p><strong>Past Orders:</strong></p>
             <br>
             <% @user.orders.each do |order| %>
-              <p><strong>Order ID:</strong> <%= order.id %></p>
+              <p><strong><%= link_to 'Order details :', order_path(order.id)%></strong></p>
               <p><strong>Date:</strong> <%= order.created_at.to_date %></p>
               <ul>
                 <% order.order_items.each do |order_item| %>
