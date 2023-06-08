@@ -655,7 +655,8 @@
  .registration {
   background-color: #FEFEEF;
   padding-bottom: 40px;
- }
+  min-height: 65vh;
+}
 
  .top-header {
   background-color: #FEFEEF;
