@@ -32,4 +32,10 @@ namespace :admin do
   root to: 'dashboard#index'
 end
 
+namespace :admin do
+  get 'dashboard', to: 'dashboard#index'
+  get 'dashboard/new_product', to: 'dashboard#new_product'
+  post 'dashboard/create_product', to: 'dashboard#create_product'
+end
+
 end
