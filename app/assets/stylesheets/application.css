@@ -2242,6 +2242,23 @@
   border-radius: 30%;
 }
 
+.hidden-button {
+    display: none;
+  }
+
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-button {
+  margin: 0 5px;
+}
+
+.quantity-display {
+  margin: 0 5px;
+}
 
  
  .success-msg .block i {
