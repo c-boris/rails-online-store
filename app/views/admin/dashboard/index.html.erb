@@ -13,6 +13,7 @@
           <div class="text-left clearfix">
             <p><strong>Nombre de commandes vendues : </strong><%= @total_orders_sold || 0 %></p>
             <p><strong>Prix moyen des objets vendus : </strong><%= number_to_currency(@average_price_sold) %></p>
+            <%= button_to 'Créer un nouveau produit', admin_dashboard_new_product_path, method: :get, class: 'btn btn-main' %>
           </div>
         </div>
       </div>
