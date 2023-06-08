@@ -26,7 +26,7 @@
                           <tr class="">
                             <td class="">
                               <div class="product-info">
-                                <img width="80" src="<%= cart_item.item.image_url %>" alt="" />
+                                <img width="80" src="<%= cart_item.item.image_url %>" alt="image de chat" />
                                 <a href="#!"><%= cart_item.item.title %></a>
                               </div>
                             </td>
@@ -48,7 +48,7 @@
                     <% end %>
                   </tbody>
                 </table>
-                <a href="checkout.html" class="btn btn-main pull-right">Checkout</a>
+              <%= button_to "Order", checkout_create_path(total: @total), class: "btn btn-primary", data: {turbo: false} %>
               </form>
             </div>
           </div>
