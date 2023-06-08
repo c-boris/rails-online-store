@@ -18,6 +18,17 @@
           <h3 class="text-center">Order History</h3>
           <div class="text-left clearfix">
             <p><strong>Past Orders:</strong></p>
+            <br>
+            <% @user.orders.each do |order| %>
+              <p><strong>Order ID:</strong> <%= order.id %></p>
+              <p><strong>Date:</strong> <%= order.created_at.to_date %></p>
+              <ul>
+                <% order.order_items.each do |order_item| %>
+                  <li><%= order_item.item.title %> - Quantity: <%= order_item.quantity %></li>
+                <% end %>
+              </ul>
+              <br>
+            <% end %>
           </div>
 
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-main text-center' %>

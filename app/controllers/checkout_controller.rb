@@ -30,9 +30,19 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
-    order = Order.create!(
-      user_id: current_user.id,
-    )
+    order = Order.create!(user_id: current_user.id)
+
+    cart_items = current_user.cart.cart_items
+  
+    cart_items.each do |cart_item|
+      OrderItem.create!(
+        order_id: order.id,
+        item_id: cart_item.item_id,
+        quantity: cart_item.quantity
+      )
+    end
+  
+    current_user.cart.cart_items.destroy_all
 
     # Redirect or render a success page
     redirect_to order_path(order) # Assuming you have an `order_path` route and an `OrderController` to handle showing the order details
