@@ -48,6 +48,10 @@ class OrdersController < ApplicationController
   def update
   end
 
+  def order_params
+    params.require(:order).permit(:order_total)
+  end
+
  
 
 end

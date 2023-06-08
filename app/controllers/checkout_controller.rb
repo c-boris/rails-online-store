@@ -30,7 +30,9 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
-    order = Order.create!(user_id: current_user.id)
+    @total = current_user.cart.cart_items.sum { |cart_item| cart_item.item.price * cart_item.quantity }
+
+    order = Order.create!(user_id: current_user.id, order_total: @total)
 
     cart_items = current_user.cart.cart_items
   
