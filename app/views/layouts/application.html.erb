@@ -122,6 +122,9 @@
               class="tf-ion-ios-arrow-down"></span></a>
           <ul class="dropdown-menu">
             <% if user_signed_in? %>
+                <% if current_user.is_admin == true %>
+                    <li><%= link_to "Dashboard", admin_root_path, class: "dropdown-item" %></li>
+                  <% end %>
               <li><%= link_to "My Profile", profile_path(current_user) %></li>
               <li><%= link_to "Edit profile", edit_user_registration_path %></li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
