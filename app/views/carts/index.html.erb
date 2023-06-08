@@ -27,7 +27,7 @@
                           <tr class="">
                             <td class="product-column">
                               <div class="product-info">
-                                <img width="80" src="<%= cart_item.item.image_url %>" alt="image de chat" />
+                                <%= image_tag cart_item.item.item_picture, style: "width: 80px; height: 80px; object-fit: cover;" %>
                                 <%= link_to cart_item.item.title, item_path(cart_item.item.id) %>
                               </div>
                             </td>                            
@@ -37,6 +37,7 @@
                                 <%= submit_tag "Update", class: "update-button" %>
                               <% end %>
                             </td>
+                            
                             <td class=""><%= cart_item.quantity %></td>
                             <td class=""><%= cart_item.item.price * cart_item.quantity %> €</td>
                             <td class="">
@@ -52,7 +53,9 @@
                       </tr>
                       <tr>
                         <td colspan="6" class="text-center">
-                          <%= button_to "Order", checkout_create_path(total: @cart_total), class: "btn btn-primary", data: {turbo: false} %>
+                          <% if current_user.cart.present? && current_user.cart.cart_items.any? %>
+                            <%= button_to "Order", checkout_create_path(total: @cart_total), class: "btn btn-primary", data: {turbo: false} %>
+                          <% end %>
                         </td>
                       </tr>
                     <% else %>
